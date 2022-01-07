@@ -61,6 +61,23 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>`;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovements(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -147,7 +164,7 @@ movements.forEach(function (movement, i, arr) {
   }
 });
 */
-
+/*
 // Map
 const currencies = new Map([
   ['USD', 'United States dollar'],
@@ -165,3 +182,49 @@ console.log(currenciesUnique);
 currenciesUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 });
+*/
+
+/*
+// CODING CHALLENGE 1
+const juliasList1 = [3, 5, 2, 12, 7];
+const katesList1 = [4, 1, 15, 8, 3];
+
+const juliasList2 = [9, 16, 6, 8, 3];
+const katesList2 = [10, 5, 6, 1, 4];
+
+const checkDogs = function (arr1, arr2) {
+  const arr1Corrected = arr1.slice(1, -2);
+  const testData = arr1Corrected.concat(arr2);
+
+  testData.forEach(function (age, i) {
+    console.log(
+      `Dog number ${i + 1} is ${
+        age >= 3 ? `an adult and is ${age} years old` : 'still a puppy 🐶'
+      }`
+    );
+  });
+};
+
+checkDogs(juliasList1, katesList1);
+checkDogs(juliasList2, katesList2);
+
+*/
+
+/*
+const eurToUsd = 1.1;
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const movementsUsd = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+
+const movementsUsd = movements.map(mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUsd);
+
+const movementsUsdfor = [];
+for (const mov of movements) movementsUsdfor.push(mov * eurToUsd);
+console.log(movementsUsdfor);
+
+*/
